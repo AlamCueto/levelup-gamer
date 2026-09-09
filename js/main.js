@@ -365,4 +365,83 @@ document.addEventListener('DOMContentLoaded', () => {
     // Inicialización al cargar la página
     actualizarBadgesYModal();
     actualizarInterfazGamificacion();
+
+    
+    // RESEÑAS
+    
+    const resenasDefecto = [
+        { nombre: "Gonzalo P.", estrellas: 5, comentario: "Excelente calidad de materiales, llegó super rápido a Santiago.", fecha: "10/05/2024" },
+        { nombre: "Valentina M.", estrellas: 4, comentario: "Muy buen producto, cumple con la descripción.", fecha: "12/05/2024" }
+    ];
+
+    function cargarResenas() {
+        const contenedor = document.getElementById('listaResenas');
+        if (!contenedor) return;
+
+        let resenasGuardadas = JSON.parse(localStorage.getItem('levelup_resenas')) || resenasDefecto;
+
+        if (resenasGuardadas.length === 0) {
+            contenedor.innerHTML = '<p style="color: #888;">Aún no hay reseñas. ¡Sé el primero en calificar!</p>';
+            return;
+        }
+
+        let html = '';
+        resenasGuardadas.forEach(res => {
+            const estrellasTxt = '⭐'.repeat(res.estrellas);
+            html += `
+                <div style="border-bottom: 1px solid #333; padding: 10px 0;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <strong style="color: #39FF14;">${res.nombre}</strong>
+                        <span style="font-size: 0.85rem; color: #888;">${res.fecha}</span>
+                    </div>
+                    <div style="color: #FFD700; margin: 3px 0;">${estrellasTxt}</div>
+                    <p style="margin: 5px 0 0 0; color: #ddd;">${res.comentario}</p>
+                </div>
+            `;
+        });
+
+        contenedor.innerHTML = html;
+    }
+
+    const formResena = document.getElementById('formResena');
+    if (formResena) {
+        formResena.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const puntuacion = parseInt(document.getElementById('resenaPuntuacion').value, 10);
+            const comentario = document.getElementById('resenaComentario').value.trim();
+            const nombreUsuario = localStorage.getItem('usuario_nombre') || 'Gamer Anónimo';
+
+            if (!comentario) return;
+
+            const nuevaResena = {
+                nombre: nombreUsuario,
+                estrellas: puntuacion,
+                comentario: comentario,
+                fecha: new Date().toLocaleDateString('es-CL')
+            };
+
+            let resenasGuardadas = JSON.parse(localStorage.getItem('levelup_resenas')) || resenasDefecto;
+            resenasGuardadas.unshift(nuevaResena); // Agregar al principio
+            localStorage.setItem('levelup_resenas', JSON.stringify(resenasGuardadas));
+
+            // Sumar 20 Puntos LevelUp por dejar una reseña (Gamificación)
+            if (typeof sumarPuntosLevelUp === 'function') {
+                sumarPuntosLevelUp(20);
+            }
+
+            const msgExito = document.getElementById('msgResenaExito');
+            if (msgExito) {
+                msgExito.textContent = '🎉 ¡Gracias por tu reseña! Has ganado +20 Puntos LevelUp.';
+                msgExito.style.display = 'block';
+                setTimeout(() => msgExito.style.display = 'none', 3000);
+            }
+
+            formResena.reset();
+            cargarResenas();
+        });
+    }
+
+    // Inicializar reseñas
+    cargarResenas();
 });
