@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level-Up Gamer | Tienda Online & Comunidad Gamer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/indexstyles.css">
+</head>
+<body>
+    <header class="header-principal">
+        <div class="logo-container">
+            <a href="index.html" class="logo-link">
+                <span class="logo-text">LEVEL-UP <span class="neon-green">GAMER</span></span>
+            </a>
+        </div>
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="index.html" class="nav-link active">Inicio</a></li>
+                <li><a href="catalogo.html" class="nav-link">Catálogo</a></li>
+                <li><a href="registro.html" class="nav-link">Registro (20% Off Duoc)</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+                <li><a href="#" id="btnAbrirCarrito" class="nav-link cart-link">🛒 Carrito <span id="cartCount" class="cart-badge">0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Banner -->
+        <section class="hero-banner">
+            <div class="hero-overlay">
+                <div class="hero-content" style="text-align: center;">
+                    <span class="badge-hud">SISTEMA GAMER DUOC UC EN VIVO</span>
+                    <h1 class="hero-title">EQUÍPATE Y <span class="glow-text">SUBE DE NIVEL</span></h1>
+                    <p class="hero-subtitle">
+                        Accesorios, consolas, PCs de alto rendimiento y sillas ergonómicas con despacho a todo Chile. 
+                        ¡Regístrate con tu correo Duoc y obtén un <strong>20% de descuento de por vida</strong>!
+                    </p>
+                    <div class="hero-actions">
+                        <a href="catalogo.html" class="btn-neon-green">Explorar Catálogo</a>
+                        <a href="registro.html" class="btn-neon-blue">Crear Cuenta Gamer</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categorías -->
+        <section class="categorias-seccion">
+            <h2 class="titulo-seccion">Explora por Categorías</h2>
+            <div class="grid-categorias">
+                <article class="card-categoria">
+                    <h3>PC & Hardware</h3>
+                    <p>PCs ASUS ROG Strix y componentes de alto rendimiento.</p>
+                    <a href="catalogo.html" class="link-categoria">Ver Equipos &rarr;</a>
+                </article>
+
+                <article class="card-categoria">
+                    <h3>Consolas</h3>
+                    <p>PlayStation 5, Nintendo Switch y mandos Xbox.</p>
+                    <a href="catalogo.html" class="link-categoria">Ver Consolas &rarr;</a>
+                </article>
+
+                <article class="card-categoria">
+                    <h3>Periféricos Gamer</h3>
+                    <p>Mouse Logitech HERO, Mousepads RGB y Auriculares.</p>
+                    <a href="catalogo.html" class="link-categoria">Ver Periféricos &rarr;</a>
+                </article>
+
+                <article class="card-categoria">
+                    <h3>Juegos de Mesa</h3>
+                    <p>Catan, Carcassonne y estrategias de tablero.</p>
+                    <a href="catalogo.html" class="link-categoria">Ver Juegos &rarr;</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Destacados -->
+        <section class="productos-destacados">
+            <h2 class="titulo-seccion">Lo más Buscado en la Squad</h2>
+            <div class="grid-productos">
+
+                <article class="card-producto">
+                    <div class="card-tag">TOP VENTAS</div>
+                    <img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=500&q=80" alt="PlayStation 5" class="producto-img">
+                    <div class="card-body">
+                        <h3>PlayStation 5</h3>
+                        <p class="descripcion-corta">Gráficos 4K e inmersión de última generación.</p>
+                        <span class="precio">$549.990 CLP</span>
+                        <button class="btn-card btn-agregar-cart" data-id="CO001" data-nombre="PlayStation 5" data-precio="549990">Añadir al Carrito</button>
+                    </div>
+                </article>
+
+                <article class="card-producto">
+                    <div class="card-tag duo">BENEFICIO DUOC</div>
+                    <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=500&q=80" alt="PC Gamer ASUS ROG Strix" class="producto-img">
+                    <div class="card-body">
+                        <h3>PC Gamer ASUS ROG Strix</h3>
+                        <p class="descripcion-corta">Máxima potencia para juegos competitivos y AAA.</p>
+                        <span class="precio">$1.299.990 CLP</span>
+                        <button class="btn-card btn-agregar-cart" data-id="CG001" data-nombre="PC Gamer ASUS ROG Strix" data-precio="1299990">Añadir al Carrito</button>
+                    </div>
+                </article>
+
+                <article class="card-producto">
+                    <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=500&q=80" alt="Auriculares Gamer HyperX Cloud II" class="producto-img">
+                    <div class="card-body">
+                        <h3>HyperX Cloud II</h3>
+                        <p class="descripcion-corta">Sonido envolvente 7.1 y comodidad de largas horas.</p>
+                        <span class="precio">$79.990 CLP</span>
+                        <button class="btn-card btn-agregar-cart" data-id="AC002" data-nombre="HyperX Cloud II" data-precio="79990">Añadir al Carrito</button>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Comunidad -->
+        <section id="comunidad" class="seccion-comunidad">
+            <div class="comunidad-info">
+                <h2 class="titulo-seccion">Comunidad Level-Up & Puntos Gamified</h2>
+                <p>Participa en nuestros torneos locales, acumula puntos <strong>LevelUp</strong> y canjéalos por descuentos exclusivos en toda la tienda.</p>
+            </div>
+
+            <div class="video-wrapper">
+                <iframe 
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    title="Novedades y Eventos Gamer Chile" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-principal">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3 class="footer-logo">LEVEL-UP <span>GAMER</span></h3>
+                <p>Tienda online de tecnología y cultura gamer en Chile. Despachos asegurados a todo el país.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="catalogo.html">Catálogo Completo</a></li>
+                    <li><a href="registro.html">Regístrate y Gana</a></li>
+                    <li><a href="contacto.html">Contacto y Soporte</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Soporte Técnico</h4>
+                <p>¿Tienes dudas con tu configuración o servicio técnico?</p>
+                <a href="https://wa.me/56944002123" target="_blank" class="btn-whatsapp"> 💬 Chat con Soporte WhatsApp</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Level-Up Gamer. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal del Carrito -->
+    <div id="modalCarrito" class="cart-modal">
+        <div class="cart-content">
+            <span id="btnCerrarCarrito" class="cart-close">&times;</span>
+            <h2>Tu Carrito Gamer 🛒</h2>
+            <div id="cartItemsContainer">
+                <p>El carrito está vacío.</p>
+            </div>
+            <div class="cart-summary">
+                <p>Subtotal: <span id="cartSubtotal">$0 CLP</span></p>
+                <p>Descuento Duoc (20%): <span id="cartDescuento">-$0 CLP</span></p>
+                <h3>Total: <span id="cartTotal">$0 CLP</span></h3>
+                <button id="btnVaciarCarrito" class="btn-neon-blue">Vaciar Carrito</button>
+                <button id="btnPagarCarrito" class="btn-neon-green">Proceder al Pago</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

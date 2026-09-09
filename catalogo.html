@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level-Up Gamer | Catálogo Oficial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/indexstyles.css">
+</head>
+<body>
+
+    <header class="header-principal">
+        <div class="logo-container">
+            <a href="index.html" class="logo-link">
+                <span class="logo-text">LEVEL-UP <span class="neon-green">GAMER</span></span>
+            </a>
+        </div>
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="catalogo.html" class="nav-link active">Catálogo</a></li>
+                <li><a href="registro.html" class="nav-link">Registro (20% Off Duoc)</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+                <li><a href="#" id="btnAbrirCarrito" class="nav-link cart-link">🛒 Carrito <span id="cartCount" class="cart-badge">0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="productos-destacados">
+        
+        <section class="encabezado-contacto">
+            <h1>Catálogo de Productos</h1>
+            <p>Explora nuestro equipamiento gamer oficial. ¡Usa tu correo <strong>@duoc.cl</strong> para obtener un <strong>20% de descuento de por vida</strong>!</p>
+        </section>
+
+        <section class="grid-productos">
+
+            <article class="card-producto">
+                <span class="card-tag duo">20% Off Duoc</span>
+                <img src="https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?auto=format&fit=crop&w=500&q=80" alt="Catan" class="producto-img">
+                <div class="card-body">
+                    <span class="categoria-label">Juegos de Mesa [JM001]</span>
+                    <h3>Catan</h3>
+                    <p class="descripcion-corta">Estrategia para colonizar y expandirse en la isla de Catan.</p>
+                    <span class="precio">$29.990 CLP</span>
+                    <button class="btn-card btn-agregar-cart" data-id="JM001" data-nombre="Catan" data-precio="29990">Añadir al Carrito</button>
+                </div>
+            </article>
+
+            <article class="card-producto">
+                <span class="card-tag duo">20% Off Duoc</span>
+                <img src="https://dementegames.cl/9316-large_default/carcassonne.jpg" alt="Carcassonne" class="producto-img">
+                <div class="card-body">
+                    <span class="categoria-label">Juegos de Mesa [JM002]</span>
+                    <h3>Carcassonne</h3>
+                    <p class="descripcion-corta">Juego de colocación de fichas medieval.</p>
+                    <span class="precio">$24.990 CLP</span>
+                    <button class="btn-card btn-agregar-cart" data-id="JM002" data-nombre="Carcassonne" data-precio="24990">Añadir al Carrito</button>
+                </div>
+            </article>
+
+            <article class="card-producto">
+                <span class="card-tag">Accesorios</span>
+                <img src="https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?auto=format&fit=crop&w=500&q=80" alt="Mando Xbox" class="producto-img">
+                <div class="card-body">
+                    <span class="categoria-label">Accesorios [AC001]</span>
+                    <h3>Control Xbox Series X</h3>
+                    <p class="descripcion-corta">Respuesta táctil mejorada para Xbox y PC.</p>
+                    <span class="precio">$59.990 CLP</span>
+                    <button class="btn-card btn-agregar-cart" data-id="AC001" data-nombre="Control Xbox Series X" data-precio="59990">Añadir al Carrito</button>
+                </div>
+            </article>
+
+            <article class="card-producto">
+                <span class="card-tag duo">20% Off Duoc</span>
+                <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=500&q=80" alt="HyperX Cloud II" class="producto-img">
+                <div class="card-body">
+                    <span class="categoria-label">Accesorios [AC002]</span>
+                    <h3>Auriculares HyperX Cloud II</h3>
+                    <p class="descripcion-corta">Sonido envolvente con micrófono desmontable.</p>
+                    <span class="precio">$79.990 CLP</span>
+                    <button class="btn-card btn-agregar-cart" data-id="AC002" data-nombre="Auriculares HyperX Cloud II" data-precio="79990">Añadir al Carrito</button>
+                </div>
+            </article>
+
+            <article class="card-producto">
+                <span class="card-tag">Consolas</span>
+                <img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=500&q=80" alt="PlayStation 5" class="producto-img">
+                <div class="card-body">
+                    <span class="categoria-label">Consolas [CO001]</span>
+                    <h3>PlayStation 5</h3>
+                    <p class="descripcion-corta">Consola de última generación con gráficos 4K.</p>
+                    <span class="precio">$549.990 CLP</span>
+                    <button class="btn-card btn-agregar-cart" data-id="CO001" data-nombre="PlayStation 5" data-precio="549990">Añadir al Carrito</button>
+                </div>
+            </article>
+
+            <article class="card-producto">
+                <span class="card-tag duo">20% Off Duoc</span>
+                <img src="https://cdnx.jumpseller.com/sipoonline1/image/76597875/thumb/1440/1440?1778700909" alt="PC Gamer ASUS" class="producto-img">
+                <div class="card-body">
+                    <span class="categoria-label">Computadores Gamers [CG001]</span>
+                    <h3>PC Gamer ASUS ROG Strix</h3>
+                    <p class="descripcion-corta">Potente equipo diseñado para la máxima exigencia.</p>
+                    <span class="precio">$1.299.990 CLP</span>
+                    <button class="btn-card btn-agregar-cart" data-id="CG001" data-nombre="PC Gamer ASUS ROG Strix" data-precio="1299990">Añadir al Carrito</button>
+                </div>
+            </article>
+
+            <article class="card-producto">
+                <span class="card-tag">Sillas Gamers</span>
+                <img src="https://http2.mlstatic.com/D_NQ_NP_2X_836518-MLA100976407917_122025-F.webp" alt="Silla Gamer" class="producto-img">
+                <div class="card-body">
+                    <span class="categoria-label">Sillas Gamers [SG001]</span>
+                    <h3>Silla Gamer Secretlab Titan</h3>
+                    <p class="descripcion-corta">Confort ergonómico con soporte lumbar ajustable.</p>
+                    <span class="precio">$349.990 CLP</span>
+                    <button class="btn-card btn-agregar-cart" data-id="SG001" data-nombre="Silla Gamer Secretlab Titan" data-precio="349990">Añadir al Carrito</button>
+                </div>
+            </article>
+
+            <article class="card-producto">
+                <span class="card-tag duo">20% Off Duoc</span>
+                <img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=500&q=80" alt="Mouse Logitech HERO" class="producto-img">
+                <div class="card-body">
+                    <span class="categoria-label">Mouse [MS001]</span>
+                    <h3>Mouse Logitech G502 HERO</h3>
+                    <p class="descripcion-corta">Sensor de alta precisión y pesas personalizables.</p>
+                    <span class="precio">$49.990 CLP</span>
+                    <button class="btn-card btn-agregar-cart" data-id="MS001" data-nombre="Mouse Logitech G502 HERO" data-precio="49990">Añadir al Carrito</button>
+                </div>
+            </article>
+
+            <article class="card-producto">
+                <span class="card-tag duo">20% Off Duoc</span>
+                <img src="https://cdnx.jumpseller.com/ters/image/59062441/Polera_Personalizada_01.png?1736789800" alt="Polera Gamer Level-Up" class="producto-img">
+                <div class="card-body">
+                    <span class="categoria-label">Poleras Personalizadas [PP001]</span>
+                    <h3>Polera Gamer Personalizada 'Level-Up'</h3>
+                    <p class="descripcion-corta">Camiseta cómoda con opción de personalización de tu gamer tag o diseño favorito.</p>
+                    <span class="precio">$14.990 CLP</span>
+                    <a href="contacto.html" class="btn-card">Comprar</a>
+                </div>
+            </article>
+
+            <article class="card-producto">
+                <span class="card-tag duo">20% Off Duoc</span>
+                <img src="https://cdnx.jumpseller.com/ters/image/61286313/POLERONES_PERSONALIZADOS_ESTAMPADOS.png?1741814661" alt="Polerón Gamer Level-Up" class="producto-img">
+                <div class="card-body">
+                    <span class="categoria-label">Polerón Personalizado [PP001]</span>
+                    <h3>Polerón Gamer Personalizado 'Level-Up'</h3>
+                    <p class="descripcion-corta">Polerón cómodo con opción de personalización de tu gamer tag o diseño favorito.</p>
+                    <span class="precio">$20.990 CLP</span>
+                    <a href="contacto.html" class="btn-card">Comprar</a>
+                </div>
+            </article>
+
+        </section>
+    </main>
+
+    <footer class="footer-principal">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3 class="footer-logo">LEVEL-UP <span>GAMER</span></h3>
+                <p>Tienda online de tecnología y cultura gamer en Chile.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="catalogo.html">Catálogo</a></li>
+                    <li><a href="registro.html">Registro</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Level-Up Gamer. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal del Carrito -->
+    <div id="modalCarrito" class="cart-modal">
+        <div class="cart-content">
+            <span id="btnCerrarCarrito" class="cart-close">&times;</span>
+            <h2>Tu Carrito Gamer 🛒</h2>
+            <div id="cartItemsContainer">
+                <p>El carrito está vacío.</p>
+            </div>
+            <div class="cart-summary">
+                <p>Subtotal: <span id="cartSubtotal">$0 CLP</span></p>
+                <p>Descuento Duoc (20%): <span id="cartDescuento">-$0 CLP</span></p>
+                <h3>Total: <span id="cartTotal">$0 CLP</span></h3>
+                <button id="btnVaciarCarrito" class="btn-neon-blue">Vaciar Carrito</button>
+                <button id="btnPagarCarrito" class="btn-neon-green">Proceder al Pago</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

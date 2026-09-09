@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level-Up Gamer | Registro de Usuario</title>
+
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="css/indexstyles.css">
+</head>
+<body>
+
+    
+    <header class="header-principal">
+        <div class="logo-container">
+            <a href="index.html" class="logo-link">
+                <span class="logo-text">LEVEL-UP <span class="neon-green">GAMER</span></span>
+            </a>
+        </div>
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="catalogo.html" class="nav-link">Catálogo</a></li>
+                <li><a href="registro.html" class="nav-link active">Registro</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contacto-container">
+        
+        <section class="encabezado-contacto">
+            <h1>Únete a la Squad Level-Up</h1>
+            <p>Crea tu cuenta gamer. ¡Si te registras con tu correo <strong>@duoc.cl</strong> obtienes un <strong>20% de descuento de por vida</strong>!</p>
+        </section>
+
+        
+        <section class="formulario-seccion">
+            <h2>Crear Cuenta Gamer</h2>
+            
+            <form id="formRegistro" class="form-gamer" novalidate>
+                
+                <div class="input-group">
+                    <label for="nombreRegistro">Nombre Completo (*):</label>
+                    <input type="text" id="nombreRegistro" name="nombreRegistro" placeholder="Ej. Sebastian Negro" autocomplete="name" required>
+                    <span class="error-mensaje" id="errorNombreReg"></span>
+                </div>
+
+                <div class="input-group">
+                    <label for="correoRegistro">Correo Electrónico (*):</label>
+                    <input type="email" id="correoRegistro" name="correoRegistro" placeholder="usuario@duoc.cl" autocomplete="email" required>
+                    <span class="error-mensaje" id="errorCorreoReg"></span>
+                    <small id="descuentoDuocBadge" style="color: #39FF14; font-weight: bold; display: none; margin-top: 5px;">
+                        🎉 ¡Felicidades! Se ha detectado tu correo Duoc. Se aplicará un 20% de descuento en tus compras.
+                    </small>
+                </div>
+
+                <div class="input-group">
+                    <label for="fechaNacimiento">Fecha de Nacimiento (*):</label>
+                    <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+                    <span class="error-mensaje" id="errorFecha"></span>
+                </div>
+
+                <div class="input-group">
+                    <label for="passwordRegistro">Contraseña (*):</label>
+                    <input type="password" id="passwordRegistro" name="passwordRegistro" placeholder="Mínimo 6 caracteres" required>
+                    <span class="error-mensaje" id="errorPassword"></span>
+                </div>
+
+                <div class="input-group">
+                    <label for="confirmPassword">Confirmar Contraseña (*):</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Repite tu contraseña" required>
+                    <span class="error-mensaje" id="errorConfirmPass"></span>
+                </div>
+
+                <div class="input-group">
+                    <label for="codigoReferido">Código de Referido (Opcional):</label>
+                    <input type="text" id="codigoReferido" name="codigoReferido" placeholder="Ej. GAMER123">
+                    <small style="color: #888;">¡Ingresa el código de un amigo para darle puntos!</small>
+                </div>
+
+                <button type="submit" class="btn-neon-green" style="width: 100%; font-size: 1.1rem; padding: 12px;">Completar Registro</button>
+                <div id="mensajeExitoReg" class="exito-box" style="display: none; margin-top: 15px; padding: 15px; background: rgba(57, 255, 20, 0.1); border: 1px solid #39FF14; color: #39FF14; border-radius: 6px; text-align: center;"></div>
+
+            </form>
+        </section>
+
+    </main>
+
+   
+    <footer class="footer-principal">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3 class="footer-logo">LEVEL-UP <span>GAMER</span></h3>
+                <p>Tienda online de tecnología y cultura gamer en Chile con despacho a todo el país.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="catalogo.html">Catálogo</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Level-Up Gamer. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+   
+    <script src="js/main.js"></script>
+</body>
+</html>
