@@ -597,3 +597,70 @@ h1, h2, h3, h4 {
     color: #DDD;
     font-size: 0.9rem;
 }
+
+.seccion-resenas {
+    max-width: 1140px;
+    margin: 4rem auto;
+    padding: 0 1.5rem;
+}
+
+.subtitulo-resenas {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+.grid-resenas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.card-resena {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.cabecera-resena {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--electric-blue);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.85rem;
+}
+
+.cabecera-resena h4 {
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.user-tag {
+    font-size: 0.7rem;
+    color: var(--neon-green);
+    font-weight: 500;
+}
+
+.texto-resena {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    font-style: italic;
+}
