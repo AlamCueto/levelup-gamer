@@ -36,8 +36,8 @@ tienda-online/
 ```
 
 ## 🚀 Estado del Proyecto (Versión 1)
-*[x] Creación de estructura HTML semántica e interconexión de páginas.
-*[x] Implementación de estilos CSS personalizados de forma externa.
-*[x] Desarrollo de validaciones en JavaScript para formularios.
-*[x] Configuración del repositorio remoto y commits colaborativos.
-*[ ] Avance para la siguiente evaluación parcial.
+* [x] Creación de estructura HTML semántica e interconexión de páginas.
+* [x] Implementación de estilos CSS personalizados de forma externa.
+* [x] Desarrollo de validaciones en JavaScript para formularios.
+* [x] Configuración del repositorio remoto y commits colaborativos.
+* [ ] Avance para la siguiente evaluación parcial.
