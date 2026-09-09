@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function obtenerDescuentoPorPuntos(puntos) {
-        if (puntos >= 1000) return 0.25; // 25% descuento
-        if (puntos >= 500)  return 0.15; // 15% descuento
-        if (puntos >= 200)  return 0.05; // 5% descuento
+        if (puntos >= 1000) return 0.25; 
+        if (puntos >= 500)  return 0.15; 
+        if (puntos >= 200)  return 0.05; 
         return 0;
     }
 
@@ -266,7 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Generar código de referido
                 const miCodigo = obtenerCodigoReferidoUsuario();
 
-                // Mostrar mensaje de éxito detallado
+                // Mensaje de éxito
                 const exitoBox = document.getElementById('mensajeExitoReg');
                 if (exitoBox) {
                     let mensaje = `<strong>¡Registro completado con éxito!</strong><br>
