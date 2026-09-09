@@ -138,64 +138,39 @@
     <h2 class="titulo-seccion">Opiniones de la Comunidad</h2>
     <p class="subtitulo-resenas">Lo que dicen los gamers que ya subieron de nivel con nosotros</p>
 
-    <div class="grid-resenas">
+        <!-- SECCIÓN DE RESEÑAS Y CALIFICACIONES -->
+    <section class="resenas-container" style="background: #111; padding: 20px; border-radius: 8px; border: 1px solid #333; margin-top: 30px; color: #fff;">
+        <h3 style="color: #39FF14; border-bottom: 2px solid #39FF14; padding-bottom: 8px;">⭐ Reseñas y Calificaciones de Clientes</h3>
+
+        <!-- Lista de reseñas de usuarios -->
+        <div id="listaResenas" style="margin-bottom: 25px;">
+            <p style="color: #888;">Cargando reseñas...</p>
+        </div>
+
+        <!-- Formulario para dejar nueva reseña -->
+        <form id="formResena" style="background: #1a1a1a; padding: 15px; border-radius: 6px;">
+            <h4 style="margin-top: 0; color: #fff;">Dejar una Calificación</h4>
         
-        <!-- Reseña 1 -->
-        <article class="card-resena">
-            <div class="cabecera-resena">
-                <span class="user-avatar">AM</span>
-                <div>
-                    <h4>Alex Mercer</h4>
-                    <span class="user-tag">Cliente Verificado</span>
-                </div>
+            <div style="margin-bottom: 12px;">
+                <label style="display: block; margin-bottom: 5px;">Tu Valoración:</label>
+                <select id="resenaPuntuacion" required style="width: 100%; padding: 8px; background: #222; color: #fff; border: 1px solid #444; border-radius: 4px;">
+                    <option value="5">⭐⭐⭐⭐⭐ (5/5) - ¡Excelente!</option>
+                    <option value="4">⭐⭐⭐⭐☆ (4/5) - Muy Bueno</option>
+                    <option value="3">⭐⭐⭐☆☆ (3/5) - Aceptable</option>
+                    <option value="2">⭐⭐☆☆☆ (2/5) - regular</option>
+                    <option value="1">⭐☆☆☆☆ (1/5) - Malo</option>
+                </select>
             </div>
-            <div class="estrellas">
-                <span class="star">&#9733;</span>
-                <span class="star">&#9733;</span>
-                <span class="star">&#9733;</span>
-                <span class="star">&#9733;</span>
-                <span class="star">&#9733;</span>
-            </div>
-            <p class="texto-resena">"Compré la PS5 con el descuento de correo Duoc y me llegó en 24 horas a Santiago. El empaque venía perfecto."</p>
-        </article>
 
-        <!-- Reseña 2 -->
-        <article class="card-resena">
-            <div class="cabecera-resena">
-                <span class="user-avatar">CL</span>
-                <div>
-                    <h4>Camila Loyola</h4>
-                    <span class="user-tag">Duoc UC Gamer</span>
-                </div>
+            <div style="margin-bottom: 12px;">
+                <label style="display: block; margin-bottom: 5px;">Tu Comentario:</label>
+                <textarea id="resenaComentario" rows="3" placeholder="Escribe tu opinión sobre el producto..." required style="width: 100%; padding: 8px; background: #222; color: #fff; border: 1px solid #444; border-radius: 4px; resize: vertical;"></textarea>
             </div>
-            <div class="estrellas">
-                <span class="star">&#9733;</span>
-                <span class="star">&#9733;</span>
-                <span class="star">&#9733;</span>
-                <span class="star">&#9733;</span>
-                <span class="star">&#9733;</span>
-            </div>
-            <p class="texto-resena">"El teclado mecánico HyperX se siente de otro nivel. Excelente atención por WhatsApp cuando tuve dudas de la entrega."</p>
-        </article>
 
-        <!-- Reseña 3 -->
-        <article class="card-resena">
-            <div class="cabecera-resena">
-                <span class="user-avatar">GR</span>
-                <div>
-                    <h4>Gonzalo Rojas</h4>
-                    <span class="user-tag">Cliente Verificado</span>
-                </div>
-            </div>
-            <div class="estrellas">
-                <span class="star">&#9733;</span>
-                <span class="star">&#9733;</span>
-                <span class="star">&#9733;</span>
-                <span class="star">&#9733;</span>
-                <span class="star">&#9733;</span>
-            </div>
-            <p class="texto-resena">"Armar el PC ASUS ROG fue facilísimo con la asesoría que me dieron. Un 10/10 en soporte técnico."</p>
-        </article>
+            <button type="submit" class="btn-neon-green" style="padding: 10px 20px; background: #39FF14; color: #000; border: none; font-weight: bold; cursor: pointer; border-radius: 4px;">Publicar Reseña</button>
+            <div id="msgResenaExito" style="display:none; color: #39FF14; margin-top: 10px;"></div>
+        </form>
+    </section>
 
     </div>
 </section>
