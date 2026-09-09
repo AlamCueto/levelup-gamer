@@ -253,28 +253,28 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             if (esValido) {
-                // 1. Sumar puntos de bienvenida por registro
+                // Sumar puntos por registro
                 sumarPuntosLevelUp(100);
 
-                // 2. Procesar código de referido opcional
+                // Procesar código de referido
                 const inputReferido = document.getElementById('codigoReferido');
                 if (inputReferido && inputReferido.value.trim() !== '') {
                     const puntosAmigo = parseInt(localStorage.getItem('puntos_referidor')) || 0;
                     localStorage.setItem('puntos_referidor', puntosAmigo + 150);
                 }
 
-                // 3. Generar código de referido propio
+                // Generar código de referido
                 const miCodigo = obtenerCodigoReferidoUsuario();
 
-                // 4. Mostrar mensaje de éxito detallado
+                // Mostrar mensaje de éxito detallado
                 const exitoBox = document.getElementById('mensajeExitoReg');
                 if (exitoBox) {
-                    let mensaje = `🎉 <strong>¡Registro completado con éxito!</strong><br>
+                    let mensaje = `<strong>¡Registro completado con éxito!</strong><br>
                     Has ganado <strong>100 Puntos LevelUp</strong> de bienvenida.<br>
                     Tu código para referir amigos es: <strong style="color: #39FF14;">${miCodigo}</strong>.`;
 
                     if (esCorreoDuocValido(correo.value)) {
-                        mensaje += '<br>✨ Además se activó tu 20% OFF permanente por correo Duoc.';
+                        mensaje += '<br> Además se activó tu 20% OFF permanente por correo Duoc.';
                     }
 
                     exitoBox.innerHTML = mensaje;
