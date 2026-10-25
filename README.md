@@ -14,13 +14,13 @@ Aplicación web interactiva desarrollada con React y Vite, que integra un catál
 ⸻
 
 📌 Descripción del proyecto
-
+```text
 Level-Up Gamer es una tienda online desarrollada como parte de la Evaluación Parcial 2 de Desarrollo FullStack II.
 
 El proyecto evolucionó desde una estructura web estática hacia una Single Page Application (SPA), utilizando React para construir interfaces mediante componentes reutilizables y Vite como herramienta de desarrollo.
 
 La aplicación incorpora navegación entre páginas, administración global del carrito de compras, validaciones de formularios y pruebas unitarias automatizadas.
-
+```
 ✨ Objetivos principales
 ```text
 * 🛒 Implementar un carrito de compras interactivo.
@@ -57,7 +57,7 @@ Francesca Valencia.
 ⸻
 
 🚀 Características principales
-
+```text
 🛍️ 1. Catálogo de productos
 
 Visualización de productos mediante componentes reutilizables, facilitando la organización y presentación del catálogo.
@@ -93,7 +93,7 @@ Interfaz con temática gamer, adaptada a dispositivos móviles, tablets y comput
 🧪 6. Pruebas unitarias automatizadas
 
 Suite de 10 pruebas unitarias destinadas a comprobar componentes, interacciones, reglas de negocio y validaciones de formularios.
-
+```
 ⸻
 
 📂 Estructura del proyecto
@@ -134,7 +134,7 @@ levelup-gamer/
 ⸻
 
 🧪 Pruebas unitarias
-
+```text
 El proyecto incluye una suite de 10 pruebas unitarias ubicadas en src/tests/app.spec.jsx, utilizando Jasmine y Karma.
 
 ✅ Casos de prueba contemplados
@@ -150,21 +150,21 @@ N.º	Prueba	Objetivo
 8	Validación de contraseñas	Verificar la coincidencia de las contraseñas del registro.
 9	Correo institucional	Comprobar la validación del dominio Duoc UC.
 10	Etiquetas de beneficio	Verificar el renderizado condicional de la etiqueta BENEFICIO DUOC.
-
+```
 ▶️ Ejecutar las pruebas
-
+```text
 Desde la terminal, en la carpeta raíz del proyecto, ejecuta:
 
 npm test
 
 Nota: El comando requiere que el script test esté configurado en package.json.
-
+```
 ⸻
 
 ⚙️ Instalación y ejecución local
 
 Sigue estos pasos para ejecutar el proyecto en tu computador.
-
+```text
 1. 📥 Clonar el repositorio
 
 git clone https://github.com/TU_USUARIO/levelup-gamer.git
@@ -188,18 +188,18 @@ npm run dev
 Abre en tu navegador la dirección que indique Vite en la terminal. Normalmente es:
 
 http://localhost:5173
-
+```
 ⸻
 
 🌿 Control de versiones
-
+```text
 El proyecto utiliza Git y GitHub para administrar el código fuente y facilitar el trabajo colaborativo.
 
 * Repositorio: Level-Up Gamer.
 * Rama de desarrollo: Levelup-v2.
 * Control de versiones: Git.
 * Plataforma de alojamiento: GitHub.
-
+```
 ⸻
 
 <div align="center">
