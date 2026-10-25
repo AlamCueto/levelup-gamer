@@ -22,14 +22,14 @@ El proyecto evolucionó desde una estructura web estática hacia una Single Page
 La aplicación incorpora navegación entre páginas, administración global del carrito de compras, validaciones de formularios y pruebas unitarias automatizadas.
 
 ✨ Objetivos principales
-
+```text
 * 🛒 Implementar un carrito de compras interactivo.
 * 🧩 Desarrollar una arquitectura basada en componentes reutilizables.
 * 🧭 Gestionar la navegación mediante React Router.
 * 🎓 Aplicar reglas de negocio para los beneficios Duoc UC.
 * 🧪 Verificar el funcionamiento mediante pruebas unitarias.
 * 📱 Crear una interfaz adaptable a distintos dispositivos.
-
+```
 ⸻
 
 👥 Equipo de trabajo
@@ -41,20 +41,19 @@ Francesca Valencia.
 ⸻
 
 🛠️ Tecnologías y herramientas
-
-Tecnología	Uso en el proyecto
-⚛️ React 18	Desarrollo de interfaces mediante componentes.
-⚡ Vite 5	Servidor de desarrollo y herramientas de compilación.
-🎨 Bootstrap 5	Diseño responsivo y estilos de interfaz.
-🧩 React-Bootstrap	Componentes visuales integrados con React.
-🧭 React Router DOM v6	Navegación entre las vistas de la aplicación.
-🔄 Context API	Administración global del carrito mediante CartContext.
-🧪 Jasmine	Definición y ejecución de pruebas unitarias.
-🚦 Karma	Ejecución de pruebas automatizadas.
-🧰 Webpack y JSDOM	Preparación del entorno de pruebas y simulación del DOM.
-🐙 Git y GitHub	Control de versiones y colaboración.
-💻 Visual Studio Code	Entorno de desarrollo.
-
+```text
+* ⚛️ React 18: Desarrollo de interfaces mediante componentes.
+* ⚡ Vite 5: Servidor de desarrollo y herramientas de compilación.
+* 🎨 Bootstrap 5: Diseño responsivo y estilos.
+* 🧩 React-Bootstrap: Componentes visuales para React.
+* 🧭 React Router DOM v6: Navegación entre páginas.
+* 🔄 Context API: Gestión global del carrito mediante CartContext.
+* 🧪 Jasmine: Creación y ejecución de pruebas unitarias.
+* 🚦 Karma: Ejecución de pruebas automatizadas.
+* 🧰 Webpack y JSDOM: Configuración del entorno de pruebas y simulación del DOM.
+* 🐙 Git y GitHub: Control de versiones y colaboración.
+* 💻 Visual Studio Code: Entorno de desarrollo.
+```
 ⸻
 
 🚀 Características principales
@@ -98,7 +97,7 @@ Suite de 10 pruebas unitarias destinadas a comprobar componentes, interacciones,
 ⸻
 
 📂 Estructura del proyecto
-
+```text
 levelup-gamer/
 │
 ├── public/                      # Recursos estáticos e imágenes
@@ -131,7 +130,7 @@ levelup-gamer/
 ├── package.json                  # Dependencias y scripts
 ├── package-lock.json             # Versiones de dependencias
 └── README.md                     # Documentación del proyecto
-
+```
 ⸻
 
 🧪 Pruebas unitarias
