@@ -184,27 +184,27 @@ N.º	Prueba	Objetivo
 ▶️ Ejecutar las pruebas
 
 Instala las dependencias del proyecto:
-
+```text
 npm install
-
+```
 Ejecuta las pruebas unitarias:
-
+```text
 npx vitest run
-
+```
 Para ejecutar las pruebas en modo interactivo:
-
+```text
 npx vitest
-
+```
 📊 Generar el informe de cobertura
 
 Ejecuta las pruebas y genera el informe:
-
+```text
 npm run cobertura
-
+```
 También puedes generar el informe directamente mediante:
-
+```text
 npx vitest run --coverage
-
+```
 📁 Consultar el informe HTML
 
 Una vez finalizada la ejecución, abre el siguiente archivo en tu navegador:
@@ -226,9 +226,9 @@ El informe permite revisar los porcentajes de cobertura globales y por archivo, 
 * Un navegador web actualizado.
 
 1. 📥 Clonar el repositorio
-
+```text
 git clone https://github.com/TU_USUARIO/levelup-gamer.git
-
+```
 Reemplaza la dirección de ejemplo por la URL real del repositorio.
 
 2. 📂 Ingresar a la carpeta
@@ -236,19 +236,19 @@ Reemplaza la dirección de ejemplo por la URL real del repositorio.
 cd levelup-gamer
 
 3. 📦 Instalar las dependencias
-
+```text
 npm install
-
+```
 4. ⚡ Iniciar el servidor de desarrollo
-
+```text
 npm run dev
-
+```
 5. 🌐 Abrir la aplicación
 
 Abre en tu navegador la dirección que indique Vite en la terminal. Normalmente es:
-
+```text
 http://localhost:5173
-
+```
 ⸻
 
 📜 Comandos principales
