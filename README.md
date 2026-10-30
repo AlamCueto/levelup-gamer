@@ -114,7 +114,7 @@ El informe contempla las siguientes métricas:
 * Lines: líneas de código ejecutadas.
 
 ⸻
-
+'''text
 📂 Estructura del proyecto
 
 levelup-gamer/
@@ -156,7 +156,7 @@ levelup-gamer/
 ├── package.json                   # Dependencias y scripts
 ├── package-lock.json              # Versiones bloqueadas
 └── README.md                      # Documentación del proyecto
-
+'''
 ⸻
 
 🧪 Pruebas unitarias
