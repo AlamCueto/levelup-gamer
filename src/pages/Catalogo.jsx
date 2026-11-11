@@ -1,71 +1,129 @@
-import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import { ProductCard } from '../components/ProductCard';
+import { useEffect, useState } from 'react'
+import { useSearchParams } from 'react-router'
+import Alert from 'react-bootstrap/Alert'
+import Button from 'react-bootstrap/Button'
+import Col from 'react-bootstrap/Col'
+import Form from 'react-bootstrap/Form'
+import Row from 'react-bootstrap/Row'
+import Spinner from 'react-bootstrap/Spinner'
 
-export const productosGamer = [
-  {
-    id: '1',
-    nombre: 'PlayStation 5 Digital Edition',
-    precio: 549990,
-    descripcion: 'Rendimiento de nueva generación con gráficos 4K y almacenamiento SSD ultra rápido.',
-    imagen: 'https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=500&q=80',
-    tag: 'TOP VENTAS',
-    tagClase: 'bg-primary'
-  },
-  {
-    id: '2',
-    nombre: 'PC Gamer ROG Strix Duoc Edition',
-    precio: 1290990,
-    descripcion: 'Procesador i7 13th Gen, RTX 4070, 32GB RAM DDR5. Listo para VR y Streaming.',
-    imagen: 'https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=500&q=80',
-    tag: 'BENEFICIO DUOC',
-    tagClase: 'bg-success'
-  },
-  {
-    id: '3',
-    nombre: 'Silla Gamer Ergonómica Pro',
-    precio: 189990,
-    descripcion: 'Respaldo reclinable 180°, cojín lumbar y cervical con bordes en morado neón.',
-    imagen: 'https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=500&q=80'
-  },
-  {
-    id: '4',
-    nombre: 'Teclado Mecánico RGB Switch Blue',
-    precio: 69990,
-    descripcion: 'Switches mecánicos táctiles con iluminación RGB personalizable por tecla.',
-    imagen: 'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=500&q=80'
-  },
-  {
-    id: '5',
-    nombre: 'Mouse Inalámbrico 26K DPI',
-    precio: 49990,
-    descripcion: 'Sensor óptico de alta precisión con tiempo de respuesta ultra bajo (1ms).',
-    imagen: 'https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=500&q=80'
-  },
-  {
-    id: '6',
-    nombre: 'Audífonos Gaming 7.1 Surround',
-    precio: 79990,
-    descripcion: 'Cancelación de ruido activa, micrófono omnidireccional y almohadillas viscoelásticas.',
-    imagen: 'https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=500&q=80',
-    tag: 'NUEVO',
-    tagClase: 'bg-info'
+import TarjetaProducto from '../componentes/TarjetaProducto.jsx'
+import { categorias } from '../datos/productos.js'
+import { mensajeDeError } from '../servicios/errores.js'
+import { listarProductos } from '../servicios/productos.js'
+
+export default function Catalogo({ onAgregar }) {
+  const [parametros, setParametros] = useSearchParams()
+  const textoBuscado = parametros.get('buscar') ?? ''
+  const categoriaElegida = parametros.get('categoria') ?? ''
+
+  // Toda página que pide datos a una API tiene estos tres estados.
+  const [productos, setProductos] = useState([])
+  const [cargando, setCargando] = useState(true)
+  const [error, setError] = useState(null)
+  const [intento, setIntento] = useState(0) // sube en 1 para "Reintentar"
+
+  // Pedir datos a un servidor es hablarle a algo que no es React: va en un
+  // efecto. Se repite cada vez que cambia la categoría o se pulsa Reintentar.
+  useEffect(() => {
+    // Si el usuario cambia de categoría antes de que llegue la respuesta
+    // anterior, "ignorar" evita que esa respuesta vieja pise a la nueva.
+    let ignorar = false
+
+    async function cargar() {
+      setCargando(true)
+      setError(null)
+      try {
+        const datos = await listarProductos(categoriaElegida)
+        if (!ignorar) setProductos(datos)
+      } catch (e) {
+        if (!ignorar) setError(mensajeDeError(e))
+      } finally {
+        if (!ignorar) setCargando(false)
+      }
+    }
+
+    cargar()
+    return () => {
+      ignorar = true
+    }
+  }, [categoriaElegida, intento])
+
+  function actualizarParametro(clave, valor) {
+    const copia = new URLSearchParams(parametros)
+    if (valor) {
+      copia.set(clave, valor)
+    } else {
+      copia.delete(clave)
+    }
+    setParametros(copia)
   }
-];
 
-export const Catalogo = () => {
+  // La categoría la filtra el servidor; el texto lo filtramos aquí.
+  const visibles = productos.filter((producto) =>
+    producto.nombre.toLowerCase().includes(textoBuscado.toLowerCase()),
+  )
+
   return (
-    <Container className="my-5">
-      <h1 className="text-center text-neon-green mb-2 fw-bold">CATÁLOGO DE EQUIPAMIENTO</h1>
-      <p className="text-center text-neon-purple mb-5">Aprovecha el 20% de descuento usando tu correo institucional @duocuc.cl</p>
-      
-      <Row className="g-4">
-        {productosGamer.map((prod) => (
-          <Col key={prod.id} xs={12} sm={6} md={4}>
-            <ProductCard {...prod} />
-          </Col>
-        ))}
+    <>
+      <h1 className="h3 mb-3">Catálogo</h1>
+
+      <Row className="g-2 mb-4">
+        <Col xs={12} md={8}>
+          <Form.Label htmlFor="buscar" visuallyHidden>
+            Buscar producto
+          </Form.Label>
+          <Form.Control
+            id="buscar"
+            type="search"
+            placeholder="Buscar producto…"
+            value={textoBuscado}
+            onChange={(evento) => actualizarParametro('buscar', evento.target.value)}
+          />
+        </Col>
+        <Col xs={12} md={4}>
+          <Form.Label htmlFor="categoria" visuallyHidden>
+            Filtrar por categoría
+          </Form.Label>
+          <Form.Select
+            id="categoria"
+            value={categoriaElegida}
+            onChange={(evento) => actualizarParametro('categoria', evento.target.value)}
+          >
+            <option value="">Todas las categorías</option>
+            {categorias.map((categoria) => (
+              <option key={categoria} value={categoria}>
+                {categoria}
+              </option>
+            ))}
+          </Form.Select>
+        </Col>
       </Row>
-    </Container>
-  );
-};
+
+      {cargando ? (
+        <div className="text-center py-5">
+          <Spinner animation="border" role="status" />
+          <p className="text-muted mt-2">Cargando productos…</p>
+        </div>
+      ) : error ? (
+        <Alert variant="danger">
+          <Alert.Heading>No pudimos cargar el catálogo</Alert.Heading>
+          <p>{error}</p>
+          <Button variant="outline-danger" onClick={() => setIntento((n) => n + 1)}>
+            Reintentar
+          </Button>
+        </Alert>
+      ) : visibles.length === 0 ? (
+        <Alert variant="warning">No hay productos que coincidan con la búsqueda.</Alert>
+      ) : (
+        <Row xs={1} sm={2} lg={3} className="g-3">
+          {visibles.map((producto) => (
+            <Col key={producto.id}>
+              <TarjetaProducto producto={producto} onAgregar={onAgregar} />
+            </Col>
+          ))}
+        </Row>
+      )}
+    </>
+  )
+}
