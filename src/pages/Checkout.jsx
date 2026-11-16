@@ -3,11 +3,15 @@ import { Container, Row, Col, Card, Form, Button, Alert, Table } from 'react-boo
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { enviarPedido } from '../servicios/pedidos.js';
+import { mensajeDeError } from '../servicios/errores.js';
 
 export const Checkout = () => {
   const { cart, total, subtotal, descuentoDuoc, esAlumnoDuocValido, clearCart, obtenerNuevoNumeroOrden } = useCart();
   const { user } = useAuth();
   const navigate = useNavigate();
+  const [enviando, setEnviando] = useState(false);
+  const [mensajeErrorApi, setMensajeErrorApi] = useState('');
 
   const [datosEnvio, setDatosEnvio] = useState({
     nombre: user ? user.nombre || '' : '',
@@ -32,31 +36,40 @@ export const Checkout = () => {
     });
   };
 
-  const handleProcesarPago = (e) => {
-    e.preventDefault();
+  const handleProcesarPago = async (e) => {
+  e.preventDefault();
 
-    // SIMULACIÓN DE ERROR
-    if (datosEnvio.forzarError || datosEnvio.calle.toLowerCase().includes('error')) {
-      setEstadoCompra('error');
-      return;
-    }
+  if (datosEnvio.forzarError || datosEnvio.calle.toLowerCase().includes('error')) {
+    setEstadoCompra('error');
+    return;
+  }
 
-    // GENERAR NÚMERO DE ORDEN INCREMENTAL (#123456)
-    const nroOrden = obtenerNuevoNumeroOrden();
+  setEnviando(true);
+  setMensajeErrorApi('');
+
+  try {
+    // Envía el carrito real a Spring Boot (POST /pedidos)
+    const pedidoConfirmado = await enviarPedido(cart);
 
     setResumenCompra({
-      nroOrden,
-      codigoOrden: `ORDER-${Math.floor(10000 + Math.random() * 90000)}`,
+      nroOrden: `#${pedidoConfirmado.id}`,
+      codigoOrden: `ORDER-${pedidoConfirmado.id}`,
       items: [...cart],
       subtotal,
       descuentoDuoc,
-      total,
+      total: pedidoConfirmado.total, // Usa el total oficial calculado por el backend
       datosEnvio: { ...datosEnvio }
     });
 
     clearCart();
     setEstadoCompra('exito');
-  };
+  } catch (error) {
+    setMensajeErrorApi(mensajeDeError(error));
+    setEstadoCompra('error');
+  } finally {
+    setEnviando(false);
+  }
+};
 
   // ==========================================
   // VISTA 1: BOLETA DE VENTA EXITOSA (FORMAL)
@@ -200,7 +213,9 @@ export const Checkout = () => {
             Hubo un problema al procesar tu transacción bancaria o la tarjeta fue rechazada.
           </p>
           <Alert variant="danger" className="bg-black text-danger border-danger text-start">
-            <strong>Motivo:</strong> Fondos insuficientes o timeout en la pasarela de pago. Tus productos siguen guardados en el carrito.
+            <strong>Motivo:</strong>{' '}
+            {mensajeErrorApi || 'Fondos insuficientes o timeout en la pasarela de pago.'}{' '}
+            Tus productos siguen guardados en el carrito.
           </Alert>
           <div className="d-flex justify-content-center gap-3 mt-3">
             <Button variant="warning" className="fw-bold" onClick={() => setEstadoCompra('checkout')}>
@@ -339,4 +354,4 @@ export const Checkout = () => {
       </Card>
     </Container>
   );
-};
+}

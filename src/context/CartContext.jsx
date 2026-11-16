@@ -19,9 +19,20 @@ export const CartProvider = ({ children }) => {
   }, [siguienteOrden]);
 
   // --- FUNCIONES DEL CARRITO ---
+  
   const addToCart = (product) => {
+    // 1. Calculamos cuántas unidades de este producto ya están en el carrito
+    const existing = cart.find((item) => item.id === product.id);
+    const cantidadActual = existing ? existing.cantidad : 0;
+
+    // 2. Validamos contra el stock que viene del backend (si existe la propiedad stock)
+    if (typeof product.stock === 'number' && cantidadActual + 1 > product.stock) {
+      alert('Error: stock no disponible');
+      return;
+    }
+
+    // 3. Si hay stock suficiente, lo agregamos o incrementamos su cantidad
     setCart((prevCart) => {
-      const existing = prevCart.find((item) => item.id === product.id);
       if (existing) {
         return prevCart.map((item) =>
           item.id === product.id ? { ...item, cantidad: item.cantidad + 1 } : item
