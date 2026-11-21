@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+  --neon-green: #39FF14;
+  --neon-green-glow: rgba(55, 255, 20, 0.843);
+  --neon-purple: #9900ff;
+  --neon-purple-glow: rgba(153, 0, 255, 0.6);
+  --neon-blue: #00f0ff;
+  --dark-bg: #0d0a1a;
+  --card-bg: #16122b;
+  --panel-bg: #111111;
+  --text-main: #ffffff;
+  --text-muted: #888888;
+  
+  --font-heading: 'Orbitron', sans-serif;
+  --font-body: 'Roboto', sans-serif;
+}
+
+/* Base global */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--dark-bg) !important;
+  color: var(--text-main) !important;
+  font-family: var(--font-body) !important;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tipografía de Títulos */
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+  font-family: var(--font-heading) !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Clases Neón y Efectos de Brillo */
+.neon-green, .text-neon-green {
+  color: var(--neon-green) !important;
+  text-shadow: 0 0 8px var(--neon-green-glow);
+}
+
+.text-neon-purple {
+  color: var(--neon-purple) !important;
+  text-shadow: 0 0 8px var(--neon-purple-glow);
+}
+
+.glow-text {
+  color: var(--neon-green);
+  text-shadow: 0 0 12px var(--neon-green-glow), 0 0 25px var(--neon-green);
+}
+
+/* Badges estilo HUD */
+.badge-hud {
+  display: inline-block;
+  background: rgba(57, 255, 20, 0.1);
+  border: 1px solid var(--neon-green);
+  color: var(--neon-green);
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  box-shadow: 0 0 10px rgba(57, 255, 20, 0.2);
+}
+
+/* Botones Neón */
+.btn-neon-green, .btn-radiactivo {
+  background-color: var(--neon-green) !important;
+  color: #000000 !important;
+  font-family: var(--font-heading) !important;
+  font-weight: 700 !important;
+  border: none !important;
+  padding: 10px 24px;
+  border-radius: 4px;
+  box-shadow: 0 0 12px var(--neon-green-glow);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-neon-green:hover, .btn-radiactivo:hover {
+  background-color: #2ee00f !important;
+  box-shadow: 0 0 20px var(--neon-green);
+  transform: translateY(-2px);
+}
+
+.btn-neon-blue {
+  background-color: transparent !important;
+  color: var(--neon-blue) !important;
+  border: 1px solid var(--neon-blue) !important;
+  font-family: var(--font-heading) !important;
+  font-weight: 700 !important;
+  padding: 10px 24px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-neon-blue:hover {
+  background-color: var(--neon-blue) !important;
+  color: #000000 !important;
+  box-shadow: 0 0 18px var(--neon-blue);
+  transform: translateY(-2px);
+}
+
+/* Tarjetas de Producto / Categoría */
+.card-gamer, .card-categoria, .card-producto {
+  background-color: var(--card-bg) !important;
+  border: 1px solid var(--neon-purple) !important;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card-gamer:hover, .card-categoria:hover, .card-producto:hover {
+  transform: translateY(-5px);
+  border-color: var(--neon-green) !important;
+  box-shadow: 0 0 15px var(--neon-green-glow) !important;
+}
+
+/* Modales y Contenedores */
+.modal-content, .resenas-container {
+  background-color: var(--panel-bg) !important;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #ffffff;
+}
+
+/* Footer */
+.footer-principal {
+  background-color: #080612;
+  border-top: 1px solid var(--neon-purple);
+  padding: 40px 0 20px 0;
+  margin-top: auto;
+}
