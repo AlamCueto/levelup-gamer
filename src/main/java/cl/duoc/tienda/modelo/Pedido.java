@@ -1,14 +1,19 @@
 package cl.duoc.tienda.modelo;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
-// Registro simple de cada compra: cuándo, cuántas unidades y cuánto se cobró.
 @Entity
+@Table(name = "boleta")
 public class Pedido {
 
     @Id
@@ -19,6 +24,9 @@ public class Pedido {
     private Integer unidades;
     private Integer total;
 
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<DetalleBoleta> detalles = new ArrayList<>();
+
     public Pedido() {
     }
 
@@ -28,8 +36,14 @@ public class Pedido {
         this.total = total;
     }
 
+    public void agregarDetalle(DetalleBoleta detalle) {
+        detalles.add(detalle);
+        detalle.setPedido(this);
+    }
+
     public Long getId() { return id; }
     public LocalDateTime getFecha() { return fecha; }
     public Integer getUnidades() { return unidades; }
     public Integer getTotal() { return total; }
+    public List<DetalleBoleta> getDetalles() { return detalles; }
 }

@@ -3,28 +3,58 @@ package cl.duoc.tienda.config;
 import java.util.List;
 
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import cl.duoc.tienda.modelo.Categoria;
 import cl.duoc.tienda.modelo.Producto;
+import cl.duoc.tienda.modelo.Usuario;
+import cl.duoc.tienda.repositorio.CategoriaRepository;
 import cl.duoc.tienda.repositorio.ProductoRepository;
+import cl.duoc.tienda.repositorio.UsuarioRepository;
 
-// Se ejecuta una vez al arrancar la API y carga el mismo catálogo que antes
-// vivía en src/datos/productos.js del proyecto React.
 @Component
 public class DatosIniciales implements CommandLineRunner {
 
-    private final ProductoRepository repositorio;
+    private final CategoriaRepository categoriaRepository;
+    private final ProductoRepository productoRepository;
+    private final UsuarioRepository usuarioRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public DatosIniciales(ProductoRepository repositorio) {
-        this.repositorio = repositorio;
+    public DatosIniciales(
+            CategoriaRepository categoriaRepository,
+            ProductoRepository productoRepository,
+            UsuarioRepository usuarioRepository,
+            PasswordEncoder passwordEncoder) {
+        this.categoriaRepository = categoriaRepository;
+        this.productoRepository = productoRepository;
+        this.usuarioRepository = usuarioRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
     public void run(String... args) {
-        if (repositorio.count() > 0) {
+        cargarCategorias();
+        cargarProductos();
+        cargarUsuarios();
+    }
+
+    private void cargarCategorias() {
+        if (categoriaRepository.count() > 0) {
             return;
         }
-        repositorio.saveAll(List.of(
+        categoriaRepository.saveAll(List.of(
+                new Categoria("audio"),
+                new Categoria("computacion"),
+                new Categoria("hogar")
+        ));
+    }
+
+    private void cargarProductos() {
+        if (productoRepository.count() > 0) {
+            return;
+        }
+        productoRepository.saveAll(List.of(
                 new Producto("Audífonos inalámbricos Onda", "audio", 39990, 12,
                         "Audífonos bluetooth con cancelación pasiva de ruido y 24 horas de autonomía con el estuche de carga.", "🎧"),
                 new Producto("Parlante portátil Roca", "audio", 54990, 5,
@@ -41,5 +71,15 @@ public class DatosIniciales implements CommandLineRunner {
                         "Silla ergonómica con apoyo lumbar regulable y respaldo de malla transpirable.", "🪑"),
                 new Producto("Cámara web Mirador HD", "computacion", 32990, 9,
                         "Cámara web 1080p con micrófono estéreo y tapa de privacidad incorporada.", "📷")));
+    }
+
+    private void cargarUsuarios() {
+        if (usuarioRepository.count() > 0) {
+            return;
+        }
+        usuarioRepository.saveAll(List.of(
+                new Usuario("Administrador LevelUp", "admin@levelup.cl", passwordEncoder.encode("Admin1234*"), "ROLE_ADMIN"),
+                new Usuario("Vendedor LevelUp", "vendedor@levelup.cl", passwordEncoder.encode("Vendedor1234*"), "ROLE_VENDEDOR"),
+                new Usuario("Cliente Duoc", "cliente@duoc.cl", passwordEncoder.encode("Cliente1234*"), "ROLE_CLIENTE")));
     }
 }

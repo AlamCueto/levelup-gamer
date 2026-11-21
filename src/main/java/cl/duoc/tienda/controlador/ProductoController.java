@@ -27,7 +27,7 @@ import jakarta.validation.Valid;
 //   PUT    /api/productos/{id}       → api.put(`/productos/${id}`, producto)  → 200
 //   DELETE /api/productos/{id}       → api.delete(`/productos/${id}`)         → 204
 @RestController
-@RequestMapping("/api/productos")
+@RequestMapping("/api/v1/productos")
 public class ProductoController {
 
     private final ProductoService servicio;
