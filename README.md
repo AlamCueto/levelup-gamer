@@ -1,4 +1,3 @@
-```markdown
 # Level-Up Gamer — Backend API REST (`tienda-api`)
 
 API RESTful desarrollada con **Spring Boot 4.1.2**, **Spring Security + JWT** y **MySQL** para la tienda
