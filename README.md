@@ -1,123 +1,90 @@
+
 <div align="center">
 
-🎮 LEVEL-UP GAMER
+# 🎮 LEVEL-UP GAMER
 
-🛍️ Tienda Online | Desarrollo FullStack II
+### 🛍️ Tienda Online Fullstack | Desarrollo FullStack II (DSY1104)
 
-¡Sube de nivel tu experiencia gamer! 🎯
+**¡Sube de nivel tu experiencia gamer! 🎯**
 
-Aplicación web interactiva desarrollada con React y Vite, que integra un catálogo de productos, carrito de compras, beneficios para estudiantes Duoc UC y pruebas unitarias automatizadas.
+Aplicación web interactiva desarrollada con **React y Vite**, integrada con una **API RESTful en Spring Boot 4.1.2**, base de datos **MySQL**, autenticación **JWT** y control de acceso por roles.
 
 </div>
 
-⸻
+---
 
-📌 Descripción del proyecto
+## 📌 Descripción del proyecto
 
-Level-Up Gamer es una tienda online desarrollada como parte de la Evaluación Parcial 2 de Desarrollo FullStack II.
+**Level-Up Gamer** es una tienda online desarrollada como parte de la **Evaluación Parcial N° 3 — Integrando Backend y Frontend** de *Desarrollo FullStack II* (Duoc UC).
 
-El proyecto evolucionó desde una estructura web estática hacia una Single Page Application (SPA), utilizando React para construir interfaces mediante componentes reutilizables y Vite como herramienta de desarrollo.
+En esta etapa, la Single Page Application (SPA) en React se conecta en tiempo real con el servidor backend (`tienda-api` en puerto `8081`) mediante **Axios**, incorporando autenticación stateless con **JSON Web Tokens (JWT)**, persistencia de sesión en `localStorage`, control de permisos por rol (`ROLE_ADMIN`, `ROLE_VENDEDOR`, `ROLE_CLIENTE`), operaciones CRUD completas sobre productos y generación de órdenes de compra (boletas).
 
-La aplicación incorpora navegación entre páginas, administración global del carrito de compras, validaciones de formularios y pruebas unitarias automatizadas.
+### ✨ Objetivos principales
 
-✨ Objetivos principales
+- 🔗 **Integrar Frontend y Backend** mediante consumo asíncrono de API REST (`/api/v1`) con Axios.
+- 🔐 **Gestionar autenticación y sesiones persistentes** mediante tokens JWT (`Bearer`) y verificación de expiración.
+- 🛡️ **Implementar control de acceso basado en roles** mediante `RutaProtegida` y renderizado condicional.
+- 🛒 **Procesar compras reales** conectadas a MySQL con descuento automático de stock y emisión de boletas.
+- 🧩 **Mantener arquitectura modular** basada en componentes reutilizables, contextos globales y servicios HTTP.
+- 🎓 **Aplicar reglas de negocio** para los beneficios de estudiantes y docentes Duoc UC.
+- 📱 **Ofrecer una interfaz responsiva** adaptada a distintos dispositivos con temática gamer.
 
-* 🛒 Implementar un carrito de compras interactivo.
-* 🧩 Desarrollar una arquitectura basada en componentes reutilizables.
-* 🧭 Gestionar la navegación mediante React Router DOM.
-* 🎓 Aplicar reglas de negocio para los beneficios Duoc UC.
-* 🧪 Verificar el funcionamiento mediante pruebas unitarias.
-* 📊 Medir la cobertura del código.
-* 📱 Crear una interfaz adaptable a distintos dispositivos.
+---
 
-⸻
+## 👥 Equipo de trabajo
 
-👥 Equipo de trabajo
+**Integrantes:**
 
-Integrantes:
+- **Alam Cueto.**
+- **Francesca Valencia.**
 
-* Alam Cueto.
-* Francesca Valencia.
+- **Asignatura:** Desarrollo FullStack II (DSY1104).
+- **Evaluación:** Evaluación Parcial N° 3 — Integrando Backend y Frontend.
 
-Asignatura: Desarrollo FullStack II.
-Evaluación: Parcial 2.
+---
 
-⸻
+## 🛠️ Tecnologías y herramientas
 
-🛠️ Tecnologías y herramientas
+- ⚛️ **React 18:** desarrollo de interfaces mediante componentes reutilizables.
+- ⚡ **Vite 5:** servidor de desarrollo (`http://localhost:5173`) y herramientas de compilación.
+- 🌐 **Axios:** cliente HTTP centralizado con interceptores de petición (`Authorization: Bearer`) y respuesta (`401 Unauthorized`).
+- 🎨 **Bootstrap 5 & React-Bootstrap:** diseño responsivo y componentes visuales.
+- 🧭 **React Router DOM v6:** navegación SPA y protección de rutas privadas (`RutaProtegida`).
+- 🔄 **Context API (`CartContext` y `AuthContext`):** gestión global del carrito, sesión JWT y roles.
+- 🧪 **Vitest & React Testing Library:** suite de pruebas unitarias y cobertura de código (`@vitest/coverage-v8`).
+- 🐙 **Git y GitHub:** control de versiones en rama `Levelup_ev3`.
+- 💻 **Visual Studio Code:** entorno de desarrollo.
 
-* ⚛️ React 18: desarrollo de interfaces mediante componentes.
-* ⚡ Vite 5: servidor de desarrollo y herramientas de compilación.
-* 🎨 Bootstrap 5: diseño responsivo y estilos.
-* 🧩 React-Bootstrap: componentes visuales para React.
-* 🧭 React Router DOM v6: navegación entre páginas.
-* 🔄 Context API: gestión global del carrito mediante CartContext.
-* 🔐 AuthContext: gestión de autenticación y datos del usuario.
-* 🧪 Vitest: ejecución de pruebas unitarias.
-* 📊 @vitest/coverage-v8: generación de informes de cobertura.
-* 🧰 React Testing Library: pruebas de componentes e interacciones.
-* 🌐 jsdom: simulación del entorno del navegador durante las pruebas.
-* 🐙 Git y GitHub: control de versiones y colaboración.
-* 💻 Visual Studio Code: entorno de desarrollo.
+---
 
-⸻
+## 🚀 Características principales
 
-🚀 Características principales
+### 🛍️ 1. Catálogo de productos conectado a MySQL
+Consumo en tiempo real desde `GET /api/v1/productos` con filtrado por categoría (`audio`, `computacion`, `hogar`), visualización de stock disponible y restricciones visuales según el rol activo.
 
-🛍️ 1. Catálogo de productos
+### 🔐 2. Autenticación JWT y persistencia de sesión
+Inicio de sesión conectado a `POST /api/v1/auth/login` mediante `AuthContext`. El token JWT recibido se almacena en `localStorage`, manteniendo la sesión activa tras recargar el navegador (`F5`) y validando su fecha de expiración (`exp`).
 
-Visualización de productos mediante componentes reutilizables, facilitando la organización y presentación del catálogo.
+### 🛡️ 3. Control de acceso por roles (`ROLE_ADMIN`, `ROLE_VENDEDOR`, `ROLE_CLIENTE`)
+- **Visitante / Cliente (`ROLE_CLIENTE`):** Puede explorar el catálogo, gestionar el carrito y finalizar compras (`POST /api/v1/pedidos`). Tiene bloqueado el acceso a `/admin` y `/ordenes`.
+- **Vendedor (`ROLE_VENDEDOR`):** Accede al inventario en modo solo lectura y al historial completo de boletas emitidas en `/ordenes` (`GET /api/v1/pedidos`).
+- **Administrador (`ROLE_ADMIN`):** Acceso total al **Panel de Administración (`/admin`)** para ejecutar operaciones **CRUD** (`POST`, `PUT`, `DELETE`) sobre productos y revisar órdenes.
 
-🛒 2. Carrito de compras
+### 🛒 4. Carrito de compras y emisión de boletas
+Gestión centralizada mediante `CartContext` y servicio `pedidos.js` para agregar productos, calcular subtotales/descuentos y confirmar la compra en `/checkout`, generando el comprobante oficial (`ORD-#`).
 
-Gestión centralizada mediante CartContext, que permite:
+### 🎓 5. Beneficio Duoc UC
+Regla de negocio que aplica un **20 % de descuento** a usuarios registrados con correos institucionales (`@duocuc.cl` y `@profesor.duoc.cl`).
 
-* Agregar productos al carrito.
-* Incrementar la cantidad de productos.
-* Eliminar productos seleccionados.
-* Vaciar completamente el carrito.
-* Calcular subtotales y totales.
-* Aplicar los beneficios correspondientes.
+### 🧪 6. Pruebas unitarias automatizadas
+Suite de **10 casos de prueba** desarrollados con Vitest y React Testing Library que verifican componentes, estado global del carrito, descuento Duoc UC y validaciones de formularios.
 
-🎓 3. Beneficio Duoc UC
+---
 
-Implementación de una regla de negocio que contempla un 20 % de descuento para usuarios que cumplen con los criterios establecidos en el proyecto.
+## 📂 Estructura del proyecto
 
-Dominios institucionales considerados:
-
-* @duocuc.cl
-* @profesor.duoc.cl
-
-🧭 4. Navegación SPA
-
-Navegación entre las diferentes vistas mediante React Router DOM, evitando la recarga completa de la página en cada cambio de ruta.
-
-📱 5. Diseño responsivo
-
-Interfaz con temática gamer, adaptada a dispositivos móviles, tablets y computadores mediante Bootstrap.
-
-🧪 6. Pruebas unitarias automatizadas
-
-El proyecto cuenta con una suite de 10 casos de prueba desarrollados con Vitest y React Testing Library.
-
-Las pruebas verifican componentes, interacciones, estado global, reglas de negocio y validaciones de formularios.
-
-📊 7. Cobertura de código
-
-La cobertura permite identificar qué proporción del código se ejecuta durante las pruebas.
-
-El informe contempla las siguientes métricas:
-
-* Statements: instrucciones ejecutadas.
-* Branches: ramas de decisión evaluadas.
-* Functions: funciones ejecutadas.
-* Lines: líneas de código ejecutadas.
-
-⸻
 ```text
-📂 Estructura del proyecto
-
-levelup-gamer/
+levelup-v3/
 │
 ├── public/                         # Recursos estáticos e imágenes
 │
@@ -126,162 +93,138 @@ levelup-gamer/
 │   ├── assets/                     # Estilos CSS y recursos multimedia
 │   │
 │   ├── components/                 # Componentes reutilizables
-│   │   ├── CartModal.jsx           # Modal del carrito
+│   │   ├── CartModal.jsx           # Modal del carrito de compras
 │   │   ├── ContactoForm.jsx        # Formulario de contacto y Level-Bot
+│   │   ├── HeaderNav.jsx           # Barra de navegación dinámica por rol
 │   │   ├── ProductCard.jsx         # Tarjeta individual de producto
 │   │   ├── RegistroForm.jsx        # Formulario de registro
-│   │   └── ReviewSection.jsx       # Reseñas de clientes
+│   │   ├── ReviewSection.jsx       # Reseñas de clientes
+│   │   └── RutaProtegida.jsx       # Guardia de rutas por autenticación y rol
 │   │
 │   ├── context/                    # Estado global de la aplicación
-│   │   ├── AuthContext.jsx          # Autenticación y sesión
-│   │   └── CartContext.jsx          # Carrito, subtotales y totales
+│   │   ├── AuthContext.jsx         # Autenticación JWT, roles y persistencia
+│   │   └── CartContext.jsx         # Carrito, subtotales y totales
 │   │
 │   ├── pages/                      # Páginas principales
-│   │   ├── AdminPanel.jsx           # Panel administrativo
-│   │   ├── Catalogo.jsx             # Catálogo de productos
-│   │   ├── Checkout.jsx             # Página de compra/venta producto
-│   │   ├── Contacto.jsx             # Página de contacto
-│   │   ├── Home.jsx                 # Página de inicio
-│   │   ├── Login.jsx                # Inicio de sesión
-│   │   └── Registro.jsx             # Página de registro
+│   │   ├── AdminPanel.jsx          # Panel administrativo CRUD (/admin)
+│   │   ├── Catalogo.jsx            # Catálogo de productos (/productos)
+│   │   ├── Checkout.jsx            # Confirmación de compra y boleta (/checkout)
+│   │   ├── Contacto.jsx            # Página de contacto (/contacto)
+│   │   ├── Home.jsx                # Página de inicio (/)
+│   │   ├── Login.jsx               # Inicio de sesión (/login)
+│   │   ├── Ordenes.jsx             # Historial de boletas para Vendedor/Admin (/ordenes)
+│   │   └── Registro.jsx            # Página de registro (/registro)
 │   │
-│   ├── tests/                     # Pruebas automatizadas
-│   │   └── app.spec.jsx             # Suite de 10 pruebas unitarias
+│   ├── servicios/                  # Capa de integración HTTP con Backend
+│   │   ├── api.js                  # Instancia Axios e interceptores JWT
+│   │   ├── pedidos.js              # Consumo de endpoints /api/v1/pedidos
+│   │   └── productos.js            # Consumo de endpoints CRUD /api/v1/productos
 │   │
-│   ├── App.css                    # Estilos personalizados
-│   ├── App.jsx                    # Aplicación y rutas principales
-│   ├── index.css                  # Estilos globales
-│   └── main.jsx                   # Punto de entrada de React
+│   ├── tests/                      # Pruebas automatizadas
+│   │   └── app.spec.jsx            # Suite de 10 pruebas unitarias
+│   │
+│   ├── App.css                     # Estilos personalizados
+│   ├── App.jsx                     # Aplicación y enrutamiento principal
+│   ├── index.css                   # Estilos globales
+│   └── main.jsx                    # Punto de entrada de React
 │
-├── package.json                   # Dependencias y scripts
-├── package-lock.json              # Versiones bloqueadas
-└── README.md                      # Documentación del proyecto
+├── package.json                    # Dependencias y scripts
+├── package-lock.json               # Versiones bloqueadas
+└── README.md                       # Documentación del proyecto
+
 ```
-⸻
 
-🧪 Pruebas unitarias
+---
 
-Las pruebas están ubicadas en:
+## 👤 Credenciales de prueba
 
-src/tests/app.spec.jsx
+Para probar los distintos perfiles integrados con el backend (`http://localhost:8081`):
 
-Se utiliza Vitest para ejecutar las pruebas y React Testing Library para interactuar con los componentes.
+| Rol | Correo Electrónico | Contraseña | Acceso en Frontend |
+| --- | --- | --- | --- |
+| **`ROLE_ADMIN`** | `admin@levelup.cl` | `admin123` | Catálogo, Carrito, Órdenes (`/ordenes`) y Panel CRUD (`/admin`). |
+| **`ROLE_VENDEDOR`** | `vendedor@levelup.cl` | `vendedor123` | Catálogo (solo lectura) e Historial de Órdenes (`/ordenes`). |
+| **`ROLE_CLIENTE`** | `cliente@duoc.cl` | `cliente123` | Catálogo, Carrito de compras y Checkout (`/checkout`). |
 
-✅ Casos de prueba contemplados
+---
 
-N.º	Prueba	Objetivo
-1	Renderizado de ProductCard	Comprobar que el nombre del producto se muestra correctamente.
-2	Evento onAddToCart	Verificar que el botón de compra invoque la función correspondiente.
-3	Estado global del carrito	Comprobar que agregar un producto actualiza el estado.
-4	Descuento Duoc UC	Verificar el cálculo del 20 % de descuento.
-5	Eliminación de productos	Comprobar que se puede eliminar un producto específico.
-6	Función clearCart	Verificar que el carrito se vacía correctamente.
-7	ReviewSection	Comprobar que se puede publicar una reseña.
-8	Validación de contraseñas	Verificar el mensaje de error cuando las contraseñas no coinciden.
-9	Correo institucional	Comprobar el reconocimiento del dominio Duoc UC durante el registro.
-10	Etiquetas de beneficio	Verificar que se muestra la etiqueta BENEFICIO DUOC.
+## 🧪 Pruebas unitarias
 
-▶️ Ejecutar las pruebas
+Las pruebas están ubicadas en `src/tests/app.spec.jsx` y se ejecutan con Vitest y React Testing Library:
 
-Instala las dependencias del proyecto:
-```text
-npm install
-```
-Ejecuta las pruebas unitarias:
-```text
-npx vitest run
-```
-Para ejecutar las pruebas en modo interactivo:
-```text
-npx vitest
-```
-📊 Generar el informe de cobertura
+| N.º | Prueba | Objetivo |
+| --- | --- | --- |
+| 1 | Renderizado de `ProductCard` | Comprobar que el nombre del producto se muestra correctamente. |
+| 2 | Evento `onAddToCart` | Verificar que el botón de compra invoque la función correspondiente. |
+| 3 | Estado global del carrito | Comprobar que agregar un producto actualiza el estado. |
+| 4 | Descuento Duoc UC | Verificar el cálculo del 20 % de descuento. |
+| 5 | Eliminación de productos | Comprobar que se puede eliminar un producto específico. |
+| 6 | Función `clearCart` | Verificar que el carrito se vacía correctamente. |
+| 7 | `ReviewSection` | Comprobar que se puede publicar una reseña. |
+| 8 | Validación de contraseñas | Verificar el mensaje de error cuando las contraseñas no coinciden. |
+| 9 | Correo institucional | Comprobar el reconocimiento del dominio Duoc UC durante el registro. |
+| 10 | Etiquetas de beneficio | Verificar que se muestra la etiqueta `BENEFICIO DUOC`. |
 
-Ejecuta las pruebas y genera el informe:
-```text
-npm run cobertura
-```
-También puedes generar el informe directamente mediante:
-```text
-npx vitest run --coverage
-```
-📁 Consultar el informe HTML
+---
 
-Una vez finalizada la ejecución, abre el siguiente archivo en tu navegador:
+## ⚙️ Instalación y ejecución local
 
-coverage/index.html
+### 📋 Requisitos previos
 
-El informe permite revisar los porcentajes de cobertura globales y por archivo, además de identificar las instrucciones, ramas, funciones y líneas que no fueron ejecutadas.
+* **Node.js** (v18 o superior) y **npm**.
+* **Backend Spring Boot (`tienda-api`)** ejecutándose en `http://localhost:8081`.
+* **Git** y un navegador web actualizado.
 
-⸻
+### 1. 📥 Clonar el repositorio (rama `Levelup_ev3`)
 
-⚙️ Instalación y ejecución local
-
-📋 Requisitos previos
-
-* Node.js.
-* npm.
-* Git.
-* Visual Studio Code o un editor equivalente.
-* Un navegador web actualizado.
-
-1. 📥 Clonar el repositorio
-```text
-git clone https://github.com/TU_USUARIO/levelup-gamer.git
-```
-Reemplaza la dirección de ejemplo por la URL real del repositorio.
-
-2. 📂 Ingresar a la carpeta
-
+```bash
+git clone -b Levelup_ev3 [https://github.com/AlamCueto/levelup-gamer.git](https://github.com/AlamCueto/levelup-gamer.git)
 cd levelup-gamer
 
-3. 📦 Instalar las dependencias
-```text
+```
+
+### 2. 📦 Instalar las dependencias
+
+```bash
 npm install
+
 ```
-4. ⚡ Iniciar el servidor de desarrollo
-```text
+
+### 3. ⚡ Iniciar el servidor de desarrollo
+
+```bash
 npm run dev
+
 ```
-5. 🌐 Abrir la aplicación
 
-Abre en tu navegador la dirección que indique Vite en la terminal. Normalmente es:
-```text
-http://localhost:5173
-```
-⸻
+Abre en tu navegador: **`http://localhost:5173`**
 
-📜 Comandos principales
+---
 
-Comando	Función
-npm install	Instala las dependencias.
-npm run dev	Inicia el servidor de desarrollo.
-npm run build	Genera la compilación de producción.
-npm run preview	Previsualiza la compilación de producción.
-npx vitest run	Ejecuta las pruebas unitarias.
-npx vitest	Ejecuta las pruebas en modo interactivo.
-npm run cobertura	Ejecuta las pruebas y genera la cobertura.
-npx vitest run --coverage	Genera directamente el informe de cobertura.
+## 📜 Comandos principales
 
-⸻
+| Comando | Función |
+| --- | --- |
+| `npm install` | Instala las dependencias del proyecto. |
+| `npm run dev` | Inicia el servidor de desarrollo de Vite (`http://localhost:5173`). |
+| `npm run build` | Genera la compilación de producción en `dist/`. |
+| `npm run preview` | Previsualiza la compilación de producción. |
+| `npx vitest run` | Ejecuta las pruebas unitarias en consola. |
+| `npm run cobertura` | Ejecuta las pruebas y genera el informe de cobertura (`coverage/index.html`). |
 
-🌿 Control de versiones
+---
 
-El proyecto utiliza Git y GitHub para administrar el código fuente y facilitar el trabajo colaborativo.
+## 🌿 Control de versiones
 
-* Repositorio: Level-Up Gamer.
-* Rama de desarrollo: Levelup-v2.
-* Control de versiones: Git.
-* Plataforma de alojamiento: GitHub.
+* **Repositorio:** `https://github.com/AlamCueto/levelup-gamer`
+* **Rama Frontend:** `Levelup_ev3`
+* **Rama Backend:** `backend_ev3`
+* **Plataforma:** GitHub
 
-⸻
+---
 
-<div align="center">
+### 🎮 LEVEL-UP GAMER
 
-🎮 LEVEL-UP GAMER
+**Desarrollo FullStack II (DSY1104) · Evaluación Parcial N° 3**
 
-Desarrollo FullStack II · Evaluación Parcial 2
-
-Desarrollando experiencias, subiendo de nivel. 🚀
-
-</div>
+*Desarrollando experiencias, subiendo de nivel. 🚀*
